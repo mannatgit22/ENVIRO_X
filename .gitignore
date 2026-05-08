@@ -1,0 +1,62 @@
+# EnviroX - Git Ignore File
+
+# API Keys and Secrets (NEVER commit these!)
+*.key
+*.env
+.env
+secrets.json
+
+# Chrome Extension Generated Files
+*.crx
+*.pem
+
+# Icon conversion output (if using PNG)
+# Uncomment if you convert SVGs to PNGs
+# icons/*.png
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# Node modules (if you add npm later)
+node_modules/
+package-lock.json
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS Files
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+
+# Build Output (if you add build process)
+dist/
+build/
+*.zip
+
+# Testing
+coverage/
+.nyc_output/
+
+# User Data (do not commit)
+user_config.json
+analysis_history.json

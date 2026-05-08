@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnviroX Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      padding: 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .header p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .radio-option:hover {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+
+    .radio-option.selected {
+      border-color: #10b981;
+      background: #d1fae5;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .radio-option label {
+      flex: 1;
+      cursor: pointer;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-label {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: monospace;
+      transition: border-color 0.2s;
+    }
+
+    input[type="password"]:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: #10b981;
+    }
+
+    .save-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    }
+
+    .save-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.4);
+    }
+
+    .save-btn:active {
+      transform: translateY(0);
+    }
+
+    .save-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status-message {
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .status-message.success {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #10b981;
+    }
+
+    .status-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #ef4444;
+    }
+
+    .status-message.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .help-text {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .help-link {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .help-link:hover {
+      text-decoration: underline;
+    }
+
+    .model-select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .model-select:focus {
+      outline: none;
+      border-color: #10b981;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 20px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1><span>🌱</span> EnviroX</h1>
+    <p>AI-Powered Greenwashing Detection</p>
+  </div>
+
+  <div class="content">
+    <div id="statusMessage" class="status-message"></div>
+
+    <div class="section">
+      <div class="section-title">Choose AI Provider</div>
+      <div class="radio-group">
+        <div class="radio-option" data-provider="anthropic">
+          <input type="radio" id="anthropic" name="provider" value="anthropic">
+          <label for="anthropic">
+            <strong>Anthropic Claude</strong><br>
+            <small style="color: #6b7280;">Claude 3.5 Sonnet (Recommended)</small>
+          </label>
+        </div>
+        <div class="radio-option" data-provider="openai">
+          <input type="radio" id="openai" name="provider" value="openai">
+          <label for="openai">
+            <strong>OpenAI GPT</strong><br>
+            <small style="color: #6b7280;">GPT-4.1, 4o, o1 & more</small>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="modelSection" style="display: none;">
+      <div class="input-group">
+        <label class="input-label" for="modelSelect">OpenAI Model</label>
+        <select id="modelSelect" class="model-select">
+          <option value="gpt-4.1">GPT-4.1 (Latest, Best for Coding)</option>
+          <option value="gpt-4.1-mini">GPT-4.1 Mini (Fast & Affordable)</option>
+          <option value="gpt-4.1-nano">GPT-4.1 Nano (Budget-Friendly)</option>
+          <option value="gpt-4o">GPT-4o</option>
+          <option value="gpt-4-turbo">GPT-4 Turbo</option>
+          <option value="gpt-4">GPT-4</option>
+          <option value="o1-preview">o1-preview (Advanced Reasoning)</option>
+          <option value="o1-mini">o1-mini (Fast Reasoning)</option>
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Legacy)</option>
+        </select>
+        <div class="help-text">
+          Choose the model based on your needs. GPT-4.1 is the latest (April 2025), excellent for analysis. GPT-4.1 mini/nano are more affordable options.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="input-group">
+        <label class="input-label" for="apiKey">API Key</label>
+        <input
+          type="password"
+          id="apiKey"
+          placeholder="Enter your API key"
+          autocomplete="off"
+        >
+        <div class="help-text" id="helpText">
+          Get your API key from
+          <a href="https://console.anthropic.com/" class="help-link" target="_blank" id="apiLink">
+            console.anthropic.com
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <button class="save-btn" id="saveBtn">Save Settings</button>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-title">How to Use</div>
+      <ol style="padding-left: 20px; font-size: 13px; color: #4b5563; line-height: 1.6;">
+        <li>Visit product pages on Amazon, Flipkart, or Meesho</li>
+        <li>Click "Analyze Product" in the side panel</li>
+        <li>View AI-powered greenwashing analysis</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    EnviroX v1.0.0 | Built for sustainable shopping
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

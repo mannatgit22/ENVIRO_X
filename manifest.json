@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "EnviroX - Greenwashing Detector",
+  "version": "2.3.1",
+  "description": "Ultra-efficient AI eco-shopping assistant with OCR that detects greenwashing on e-commerce platforms",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.amazon.in/*",
+    "https://www.flipkart.com/*",
+    "https://www.meesho.com/*",
+    "*://images-na.ssl-images-amazon.com/*",
+    "*://m.media-amazon.com/*",
+    "*://*.media-amazon.com/*",
+    "*://img1a.flixcart.com/*",
+    "*://rukminim1.flixcart.com/*",
+    "*://rukminim2.flixcart.com/*",
+    "*://*.flixcart.com/*",
+    "*://images.meesho.com/*",
+    "*://*.meesho.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.in/*",
+        "https://www.flipkart.com/*",
+        "https://www.meesho.com/*"
+      ],
+      "js": ["load-tesseract.js", "content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["panel.css"],
+      "matches": [
+        "https://www.amazon.in/*",
+        "https://www.flipkart.com/*",
+        "https://www.meesho.com/*"
+      ]
+    }
+  ]
+}

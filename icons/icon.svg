@@ -1,0 +1,31 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded background -->
+  <rect width="128" height="128" rx="24" fill="url(#bgGradient)"/>
+
+  <!-- EnviroX Text -->
+  <text x="64" y="75"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="32"
+        font-weight="bold"
+        text-anchor="middle"
+        filter="url(#shadow)">
+    <tspan fill="#1f2937">Enviro</tspan><tspan fill="#10b981">X</tspan>
+  </text>
+
+  <!-- Small leaf accent -->
+  <path d="M 64 30 Q 60 32 58 36 Q 56 40 58 44 Q 60 46 64 46 L 64 30 Z"
+        fill="#10b981" opacity="0.6"/>
+  <path d="M 64 30 Q 68 32 70 36 Q 72 40 70 44 Q 68 46 64 46 L 64 30 Z"
+        fill="#059669" opacity="0.6"/>
+</svg>

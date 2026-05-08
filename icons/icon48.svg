@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg48" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="8" fill="url(#bg48)"/>
+  <text x="24" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">
+    <tspan fill="#1f2937">Enviro</tspan><tspan fill="#10b981">X</tspan>
+  </text>
+  <!-- Leaf accent -->
+  <path d="M 24 10 Q 22 11 21 13 Q 20 15 21 17 Q 22 18 24 18 L 24 10 Z" fill="#10b981" opacity="0.6"/>
+  <path d="M 24 10 Q 26 11 27 13 Q 28 15 27 17 Q 26 18 24 18 L 24 10 Z" fill="#059669" opacity="0.6"/>
+</svg>
